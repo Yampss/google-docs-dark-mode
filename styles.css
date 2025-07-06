@@ -1,0 +1,229 @@
+/* Google Docs Dark Mode - Enhanced Version */
+
+/* Main page background */
+body {
+    background-color: #1a1a1a !important;
+    color: #e8eaed !important;
+}
+
+/* Top header area */
+.docs-titlebar,
+.docs-branding-container,
+.docs-butterbar-container {
+    background-color: #202124 !important;
+    border-bottom: 1px solid #3c4043 !important;
+}
+
+/* Document title */
+.docs-title-input,
+.docs-title-input-label,
+.docs-title-input-label-inner {
+    background-color: transparent !important;
+    color: #e8eaed !important;
+    border: none !important;
+}
+
+/* Menu bar */
+.docs-menubar {
+    background-color: #202124 !important;
+    border-bottom: 1px solid #3c4043 !important;
+}
+
+.menu-button {
+    color: #e8eaed !important;
+    background-color: transparent !important;
+}
+
+.menu-button:hover {
+    background-color: #3c4043 !important;
+}
+
+/* Toolbar */
+.docs-toolbar-wrapper,
+.docs-toolbar {
+    background-color: #202124 !important;
+    border-bottom: 1px solid #3c4043 !important;
+}
+
+.goog-toolbar-button,
+.goog-toolbar-menu-button {
+    color: #e8eaed !important;
+    background-color: transparent !important;
+}
+
+.goog-toolbar-button:hover,
+.goog-toolbar-menu-button:hover {
+    background-color: #3c4043 !important;
+}
+
+/* Main editor area */
+.docs-editor {
+    background-color: #1a1a1a !important;
+}
+
+/* CRITICAL: Document page styling - these are the main selectors for the document content */
+.kix-page,
+.kix-page-paginated {
+    background-color: #2d2e30 !important;
+    border: 1px solid #3c4043 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
+}
+
+.kix-page-content-wrapper {
+    background-color: #2d2e30 !important;
+}
+
+/* Force all document content to be light colored */
+.kix-page * {
+    color: #e8eaed !important;
+}
+
+/* Text content - multiple selectors to catch all text */
+.kix-wordhtmlgenerator-word-node,
+.kix-lineview-text-block,
+.kix-paragraphrenderer,
+.kix-lineview,
+.kix-lineview-content {
+    color: #e8eaed !important;
+    background-color: transparent !important;
+}
+
+/* Additional text selectors */
+span[style*="color"],
+div[style*="color"],
+p[style*="color"] {
+    color: #e8eaed !important;
+}
+
+/* Force text in specific containers */
+.kix-page-content-wrapper span,
+.kix-page-content-wrapper div,
+.kix-page-content-wrapper p {
+    color: #e8eaed !important;
+}
+
+/* Cursor */
+.kix-cursor-caret {
+    border-left-color: #ffffff !important;
+}
+
+/* Text selection */
+.kix-selection-overlay {
+    background-color: #1a73e8 !important;
+    opacity: 0.3 !important;
+}
+
+/* Ruler */
+.docs-ruler {
+    background-color: #202124 !important;
+    border-color: #3c4043 !important;
+    color: #e8eaed !important;
+}
+
+/* Icons - make them visible on dark background */
+.docs-icon,
+.docs-icon-img {
+    filter: invert(1) brightness(0.9) !important;
+}
+
+/* Comments panel */
+.docs-material-docos-appbar,
+.docs-docos {
+    background-color: #202124 !important;
+    border-left: 1px solid #3c4043 !important;
+}
+
+.docos-anchoredreplyview-comment-text,
+.docos-input-textarea {
+    background-color: #2d2e30 !important;
+    color: #e8eaed !important;
+    border: 1px solid #3c4043 !important;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3c4043;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5f6368;
+}
+
+/* Input fields */
+input, 
+textarea,
+.jfk-textinput {
+    background-color: #2d2e30 !important;
+    color: #e8eaed !important;
+    border: 1px solid #3c4043 !important;
+}
+
+/* Buttons */
+.goog-button,
+.jfk-button,
+.docs-material-button {
+    background-color: #3c4043 !important;
+    color: #e8eaed !important;
+    border: 1px solid #5f6368 !important;
+}
+
+.goog-button:hover,
+.jfk-button:hover,
+.docs-material-button:hover {
+    background-color: #5f6368 !important;
+}
+
+/* Menus and dropdowns */
+.goog-menu {
+    background-color: #2d2e30 !important;
+    border: 1px solid #3c4043 !important;
+}
+
+.goog-menuitem {
+    color: #e8eaed !important;
+    background-color: transparent !important;
+}
+
+.goog-menuitem-highlight,
+.goog-menuitem:hover {
+    background-color: #3c4043 !important;
+}
+
+/* Tables */
+.kix-table-cell {
+    border-color: #3c4043 !important;
+    background-color: #2d2e30 !important;
+}
+
+/* Side panels and modals */
+.docs-explore-sidebar,
+.docs-material-sidebar-content,
+.modal-dialog,
+.docs-dialog {
+    background-color: #202124 !important;
+    color: #e8eaed !important;
+    border-color: #3c4043 !important;
+}
+
+/* Force override any inline styles that might be setting text to black */
+[style*="color: rgb(0, 0, 0)"] {
+    color: #e8eaed !important;
+}
+
+[style*="color: black"] {
+    color: #e8eaed !important;
+}
+
+[style*="color:#000"] {
+    color: #e8eaed !important;
+}
