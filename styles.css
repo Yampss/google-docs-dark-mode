@@ -1,20 +1,20 @@
-/* Google Docs Dark Mode - Enhanced Version */
-
-/* Main page background */
 body {
     background-color: #1a1a1a !important;
     color: #e8eaed !important;
 }
 
-/* Top header area */
-.docs-titlebar,
-.docs-branding-container,
-.docs-butterbar-container {
+#docs-chrome,
+#docs-header-container,
+#docs-header,
+#docs-titlebar-container,
+#docs-titlebar,
+#docs-branding-container,
+#docs-butterbar-container {
     background-color: #202124 !important;
     border-bottom: 1px solid #3c4043 !important;
+    color: #e8eaed !important;
 }
 
-/* Document title */
 .docs-title-input,
 .docs-title-input-label,
 .docs-title-input-label-inner {
@@ -23,7 +23,36 @@ body {
     border: none !important;
 }
 
-/* Menu bar */
+.docs-titlebar-buttons {
+    background-color: #202124 !important;
+    color: #e8eaed !important;
+}
+
+.docs-titlebar-buttons .goog-inline-block,
+.docs-titlebar-buttons .docs-icon,
+.docs-titlebar-buttons .docs-icon-img-container,
+.docs-titlebar-buttons .docs-icon-img {
+    filter: invert(1) brightness(1.5) contrast(1.2) !important;
+}
+
+#docs-sharing-button-container,
+#docs-sharing-button {
+    background-color: #4285F4 !important;
+    border: none !important;
+}
+
+#docs-sharing-button .jfk-button-text {
+    color: #ffffff !important;
+}
+
+#docs-sharing-button:hover {
+    background-color: #5a95f5 !important;
+}
+
+#header-right .goog-inline-block {
+    filter: invert(1) brightness(1.5) !important;
+}
+
 .docs-menubar {
     background-color: #202124 !important;
     border-bottom: 1px solid #3c4043 !important;
@@ -38,95 +67,166 @@ body {
     background-color: #3c4043 !important;
 }
 
-/* Toolbar */
+#docs-toolbar-wrapper,
 .docs-toolbar-wrapper,
 .docs-toolbar {
-    background-color: #202124 !important;
-    border-bottom: 1px solid #3c4043 !important;
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #dadce0 !important;
 }
 
 .goog-toolbar-button,
 .goog-toolbar-menu-button {
-    color: #e8eaed !important;
+    color: #202124 !important;
     background-color: transparent !important;
 }
 
 .goog-toolbar-button:hover,
 .goog-toolbar-menu-button:hover {
-    background-color: #3c4043 !important;
+    background-color: #e8eaed !important;
 }
 
-/* Main editor area */
+#docs-toolbar-wrapper .docs-icon,
+#docs-toolbar-wrapper .docs-icon-img,
+#docs-toolbar-wrapper .goog-toolbar-button .docs-icon-img-container,
+#docs-toolbar-wrapper .goog-toolbar-menu-button .docs-icon-img-container {
+    filter: none !important;
+}
+
 .docs-editor {
     background-color: #1a1a1a !important;
 }
 
-/* CRITICAL: Document page styling - these are the main selectors for the document content */
+.kix-appview-editor {
+    background-color: #1a1a1a !important;
+}
+
+.kix-canvas-tile-content {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+.kix-appview-editor img,
+.kix-appview-editor video,
+.kix-appview-editor svg,
+.kix-appview-editor [role="img"] {
+    filter: invert(1) hue-rotate(180deg);
+}
+
 .kix-page,
 .kix-page-paginated {
     background-color: #2d2e30 !important;
-    border: 1px solid #3c4043 !important;
+    border-color: #444 !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.4) !important;
 }
 
 .kix-page-content-wrapper {
     background-color: #2d2e30 !important;
+    background-image: none !important;
 }
 
-/* Force all document content to be light colored */
-.kix-page * {
+.kix-page-background {
+    background-color: #2d2e30 !important;
+}
+
+.docs-outline-pane {
+    background-color: #202124 !important;
     color: #e8eaed !important;
 }
 
-/* Text content - multiple selectors to catch all text */
+.docs-outline-pane .goog-control {
+    color: #e8eaed !important;
+}
+
+.docs-outline-pane .goog-control:hover {
+    background-color: #3c4043 !important;
+}
+
+.kix-page *,
+.kix-page-content-wrapper *,
+.kix-page-paginated * {
+    color: #e8eaed !important;
+    background-color: transparent !important;
+    background-image: none !important;
+}
+
 .kix-wordhtmlgenerator-word-node,
 .kix-lineview-text-block,
 .kix-paragraphrenderer,
 .kix-lineview,
-.kix-lineview-content {
+.kix-lineview-content,
+.kix-lineview-text-block,
+.kix-paragraphrenderer-paragraph,
+.kix-lineview-content,
+.kix-rotatingtilemanager,
+.kix-paginateddocument-compact-mode .kix-page-content-wrapper {
     color: #e8eaed !important;
     background-color: transparent !important;
 }
 
-/* Additional text selectors */
-span[style*="color"],
-div[style*="color"],
-p[style*="color"] {
+span,
+div,
+p,
+h1, h2, h3, h4, h5, h6,
+li,
+td,
+th {
     color: #e8eaed !important;
 }
 
-/* Force text in specific containers */
-.kix-page-content-wrapper span,
-.kix-page-content-wrapper div,
-.kix-page-content-wrapper p {
+[style*="color: rgb(0, 0, 0)"],
+[style*="color: rgb(0,0,0)"],
+[style*="color: black"],
+[style*="color:#000"],
+[style*="color: #000000"],
+[style*="color:#000000"],
+[style*="color: rgba(0, 0, 0"],
+[style*="color: rgba(0,0,0"] {
     color: #e8eaed !important;
 }
 
-/* Cursor */
+[style*="background-color: rgb(255, 255, 255)"],
+[style*="background-color: rgb(255,255,255)"],
+[style*="background-color: white"],
+[style*="background-color:#fff"],
+[style*="background-color: #ffffff"],
+[style*="background-color:#ffffff"] {
+    background-color: #2d2e30 !important;
+}
+
+.kix-page .kix-page-content-wrapper,
+.kix-page .kix-page-content-wrapper div,
+.kix-page .kix-page-content-wrapper span,
+.kix-page .kix-page-content-wrapper p {
+    color: #e8eaed !important;
+    background-color: transparent !important;
+}
+
 .kix-cursor-caret {
     border-left-color: #ffffff !important;
 }
 
-/* Text selection */
 .kix-selection-overlay {
     background-color: #1a73e8 !important;
     opacity: 0.3 !important;
 }
 
-/* Ruler */
 .docs-ruler {
     background-color: #202124 !important;
     border-color: #3c4043 !important;
     color: #e8eaed !important;
 }
 
-/* Icons - make them visible on dark background */
-.docs-icon,
-.docs-icon-img {
-    filter: invert(1) brightness(0.9) !important;
+#docs-ruler {
+    background-color: #202124 !important;
+    border-color: #3c4043 !important;
 }
 
-/* Comments panel */
+.docs-icon,
+.docs-icon-img,
+.goog-toolbar-button .docs-icon-img-container,
+.goog-toolbar-menu-button .docs-icon-img-container {
+    filter: invert(1) brightness(1.2) !important;
+}
+
 .docs-material-docos-appbar,
 .docs-docos {
     background-color: #202124 !important;
@@ -140,7 +240,6 @@ p[style*="color"] {
     border: 1px solid #3c4043 !important;
 }
 
-/* Scrollbars */
 ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
@@ -159,7 +258,6 @@ p[style*="color"] {
     background-color: #5f6368;
 }
 
-/* Input fields */
 input, 
 textarea,
 .jfk-textinput {
@@ -168,7 +266,6 @@ textarea,
     border: 1px solid #3c4043 !important;
 }
 
-/* Buttons */
 .goog-button,
 .jfk-button,
 .docs-material-button {
@@ -183,7 +280,6 @@ textarea,
     background-color: #5f6368 !important;
 }
 
-/* Menus and dropdowns */
 .goog-menu {
     background-color: #2d2e30 !important;
     border: 1px solid #3c4043 !important;
@@ -199,13 +295,11 @@ textarea,
     background-color: #3c4043 !important;
 }
 
-/* Tables */
 .kix-table-cell {
     border-color: #3c4043 !important;
     background-color: #2d2e30 !important;
 }
 
-/* Side panels and modals */
 .docs-explore-sidebar,
 .docs-material-sidebar-content,
 .modal-dialog,
@@ -213,17 +307,4 @@ textarea,
     background-color: #202124 !important;
     color: #e8eaed !important;
     border-color: #3c4043 !important;
-}
-
-/* Force override any inline styles that might be setting text to black */
-[style*="color: rgb(0, 0, 0)"] {
-    color: #e8eaed !important;
-}
-
-[style*="color: black"] {
-    color: #e8eaed !important;
-}
-
-[style*="color:#000"] {
-    color: #e8eaed !important;
 }

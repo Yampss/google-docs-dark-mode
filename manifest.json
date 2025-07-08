@@ -4,8 +4,8 @@
   "version": "1.0",
   "description": "A simple extension to enable dark mode in Google Docs.",
   "permissions": [
-    "activeTab",
-    "scripting"
+    "scripting",
+    "storage"
   ],
   "host_permissions": [
     "https://docs.google.com/*"

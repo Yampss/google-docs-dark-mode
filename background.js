@@ -1,75 +1,59 @@
-
 // Google Docs Dark Mode Extension
 console.log('Google Docs Dark Mode extension loaded');
 
-let darkModeActive = {};
-
-chrome.action.onClicked.addListener(async (tab) => {
-  // Only work on Google Docs pages
-  if (!tab.url || !tab.url.includes('docs.google.com')) {
-    console.log('Not a Google Docs page');
-    return;
-  }
-
-  const tabId = tab.id;
-  
-  try {
-    if (!darkModeActive[tabId]) {
-      // Enable dark mode
-      await chrome.scripting.insertCSS({
-        target: { tabId: tabId },
-        files: ['styles.css']
+chrome.action.onClicked.addListener((tab) => {
+  // Add a check for tab and tab.url to prevent errors
+  if (tab && tab.url && tab.url.includes('docs.google.com/document')) {
+    chrome.storage.local.get('darkMode', ({ darkMode }) => {
+      const newMode = !darkMode;
+      chrome.storage.local.set({ darkMode: newMode }, () => {
+        if (newMode) {
+          enableDarkMode(tab.id);
+        } else {
+          disableDarkMode(tab.id);
+        }
       });
-      
-      darkModeActive[tabId] = true;
-      
-      // Show "ON" badge
-      await chrome.action.setBadgeText({
-        tabId: tabId,
-        text: 'ON'
-      });
-      
-      await chrome.action.setBadgeBackgroundColor({
-        tabId: tabId,
-        color: '#4CAF50'
-      });
-      
-      console.log('Dark mode enabled');
-      
-    } else {
-      // Disable dark mode
-      await chrome.scripting.removeCSS({
-        target: { tabId: tabId },
-        files: ['styles.css']
-      });
-      
-      darkModeActive[tabId] = false;
-      
-      // Clear badge
-      await chrome.action.setBadgeText({
-        tabId: tabId,
-        text: ''
-      });
-      
-      console.log('Dark mode disabled');
-    }
-  } catch (error) {
-    console.error('Error toggling dark mode:', error);
+    });
   }
 });
 
-// Clean up when tab closes
-chrome.tabs.onRemoved.addListener((tabId) => {
-  delete darkModeActive[tabId];
-});
+function enableDarkMode(tabId) {
+  chrome.scripting.insertCSS(
+    {
+      target: { tabId: tabId, allFrames: true },
+      files: ['styles.css'],
+    },
+    () => console.log('CSS injected into all frames.')
+  );
+  chrome.action.setBadgeText({ text: 'ON', tabId: tabId });
+  chrome.action.setBadgeBackgroundColor({ color: '#4caf50', tabId: tabId });
+}
 
-// Reset state when navigating away from Google Docs
+function disableDarkMode(tabId) {
+  chrome.scripting.removeCSS(
+    {
+      target: { tabId: tabId, allFrames: true },
+      files: ['styles.css'],
+    },
+    () => console.log('CSS removed from all frames.')
+  );
+  chrome.action.setBadgeText({ text: '', tabId: tabId });
+}
+
+// Ensure state is correct when a page is loaded or reloaded
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-  if (changeInfo.url && !changeInfo.url.includes('docs.google.com')) {
-    delete darkModeActive[tabId];
-    chrome.action.setBadgeText({
-      tabId: tabId,
-      text: ''
+  const url = changeInfo.url || (tab && tab.url);
+  if (
+    changeInfo.status === 'complete' &&
+    url &&
+    url.includes('docs.google.com/document')
+  ) {
+    chrome.storage.local.get('darkMode', ({ darkMode }) => {
+      if (darkMode) {
+        enableDarkMode(tabId);
+      } else {
+        disableDarkMode(tabId);
+      }
     });
   }
 });
