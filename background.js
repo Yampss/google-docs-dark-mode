@@ -1,8 +1,8 @@
-// Google Docs Dark Mode Extension
+
 console.log('Google Docs Dark Mode extension loaded');
 
 chrome.action.onClicked.addListener((tab) => {
-  // Add a check for tab and tab.url to prevent errors
+
   if (tab && tab.url && tab.url.includes('docs.google.com/document')) {
     chrome.storage.local.get('darkMode', ({ darkMode }) => {
       const newMode = !darkMode;
@@ -39,8 +39,6 @@ function disableDarkMode(tabId) {
   );
   chrome.action.setBadgeText({ text: '', tabId: tabId });
 }
-
-// Ensure state is correct when a page is loaded or reloaded
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   const url = changeInfo.url || (tab && tab.url);
   if (
