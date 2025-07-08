@@ -1,7 +1,7 @@
 # Google Docs Dark Mode
 
 A simple, lightweight Chrome extension that provides a comfortable and visually consistent dark mode for Google Docs. This extension is designed to reduce eye strain during late-night writing sessions by transforming the entire Google Docs interface, including the document canvas, into a dark theme.
-
+![img1](public\Screenshot 2025-07-08 154745.png)
 ## Features
 
 - **Full Dark Mode:** Applies a dark theme to the Google Docs UI, toolbars, menus, and the document itself.
